@@ -18,20 +18,20 @@ public class Curso extends AggregateEvent<CursoId> {
     protected Set<Contenido> contenidos;
     protected Map<MentoriaId, Mentoria> mentorias;
 
-    public Curso(CursoId entityId, Nombre nombre, Descripcion descripcion) {
-        super(entityId);
+    public Curso(CursoId cursoId, Nombre nombre, Descripcion descripcion) {
+        super(cursoId);
         appendChange(new CursoCreado(nombre, descripcion)).apply();
         subscribe(new CursoEventChange(this));
     }
 
-    private Curso(CursoId entityId){
-        super(entityId);
+    private Curso(CursoId cursoId){
+        super(cursoId);
         subscribe(new CursoEventChange(this));
     }
 
 
-    public static Curso from(CursoId entityId, List<DomainEvent> events){
-        var curso = new Curso(entityId);
+    public static Curso from(CursoId cursoId, List<DomainEvent> events){
+        var curso = new Curso(cursoId);
         events.forEach(curso::applyEvent);
         return curso;
     }
