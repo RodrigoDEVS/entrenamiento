@@ -65,19 +65,11 @@ class AgregarDirectrizUseCaseTest {
         );
         event.setAggregateRootId("rrrr");
 
-
-        MentoriaId mentoriaId = MentoriaId.of("ddddd");
+        MentoriaId mentoriaId = MentoriaId.of("yyy");
         Nombre nombreM = new Nombre("Aprendiendo de casos de usos");
         Fecha fecha = new Fecha(LocalDateTime.now(), LocalDate.now());
         var event2 = new MentoriaCreada(mentoriaId, nombreM, fecha);
 
-        /*
-        var event2 = new MentoriaCreada(
-                MentoriaId.of("dddd"),
-                new Nombre("Aprendiendo de casos de usos"),
-                new Fecha(LocalDateTime.now(), LocalDate.now())
-        );*/
-        //event2.setAggregateRootId("nnnnn");
         return List.of(event, event2);
     }
 }
