@@ -8,6 +8,7 @@ public class Directiz implements ValueObject<String> {
     private final String value;
 
     public Directiz(String value){
+
         this.value = Objects.requireNonNull(value);
     }
     @Override

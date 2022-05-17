@@ -7,6 +7,10 @@ public class MentoriaId extends Identity {
     public MentoriaId(String id){
         super(id);
     }
+
+    public MentoriaId() {
+    }
+
     public static MentoriaId of(String id) {
         return new MentoriaId(id);
     }

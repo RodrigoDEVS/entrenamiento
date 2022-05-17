@@ -18,6 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -64,11 +65,19 @@ class AgregarDirectrizUseCaseTest {
         );
         event.setAggregateRootId("rrrr");
 
+
         MentoriaId mentoriaId = MentoriaId.of("ddddd");
         Nombre nombreM = new Nombre("Aprendiendo de casos de usos");
         Fecha fecha = new Fecha(LocalDateTime.now(), LocalDate.now());
         var event2 = new MentoriaCreada(mentoriaId, nombreM, fecha);
 
+        /*
+        var event2 = new MentoriaCreada(
+                MentoriaId.of("dddd"),
+                new Nombre("Aprendiendo de casos de usos"),
+                new Fecha(LocalDateTime.now(), LocalDate.now())
+        );*/
+        //event2.setAggregateRootId("nnnnn");
         return List.of(event, event2);
     }
 }
